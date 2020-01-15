@@ -16,6 +16,20 @@ fun main() {
         println("item at $index is ${items[index]}")
         index++
     }
+
+    println(describe(1))
+    println(describe(2))
+    println(describe(3))
+    println(describe("4"))
+    println(describe(1L))
 }
 
-https://kotlinlang.org/docs/reference/basic-syntax.html?&_ga=2.43411116.808851200.1578972809-1259176700.1578972809#using-nullable-values-and-checking-for-null
+
+fun describe(obj: Any): String =
+    when (obj) {
+        1    -> "One"
+        2    -> "Two"
+        3    -> "Three"
+        is String -> "string"
+        else       -> "Unknown"
+    }
